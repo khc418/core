@@ -1,12 +1,20 @@
 package hello.core.member;
 
 
+import hello.core.order.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl(); // 추상화에도 의존하고 구체화한것에도 의존하게된다. DIP위반
+    MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
 
     @Test
     void join(){
