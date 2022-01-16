@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService{
 
+//    @Autowired 필드주입은 권장하지않는다      따로 주입해서 테스트해보기 힘들다 (DI프레임워크가 없으면 아무것도 못함)
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
