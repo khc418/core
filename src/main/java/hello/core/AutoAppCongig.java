@@ -6,7 +6,7 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
-        basePackages = "hello.core.member",
+        basePackages = "hello.core.discount",
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 // member부터 componentScan의 시작위치를 설정한다 / 해당 패키지 포함 하위패치지 모두 탐색
