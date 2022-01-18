@@ -15,15 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 public class LogDemoController {
 
     private final LogDemoService logDemoService;
-//    private final MyLogger myLogger;
-    private final ObjectProvider<MyLogger> myLoggersProvider;
+    private final MyLogger myLogger;
+//    private final ObjectProvider<MyLogger> myLoggersProvider;
 
     @RequestMapping("log-demo")
     @ResponseBody
     public String logDemo(HttpServletRequest request) {
         // HttpServletRequest로 고객요청정보 확인가능
         String requestURL = request.getRequestURL().toString();
-        MyLogger myLogger= myLoggersProvider.getObject();
+//        MyLogger myLogger= myLoggersProvider.getObject();
+        System.out.println("myLogger = " + myLogger.getClass());
+        // 실제 호출하는 시점에 진짜를 찾아서 동작
         myLogger.setRequestURL(requestURL);
         myLogger.log("controller test");
 //        Thread.sleep(1000);
